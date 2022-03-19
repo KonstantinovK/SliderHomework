@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j5r-up-EjJ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -8,6 +8,40 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="5oM-qC-KAb">
+            <objects>
+                <viewController id="j5r-up-EjJ" customClass="MainViewController" customModule="SliderHomework" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y87-v3-8WC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ie-tU-MnT">
+                                <rect key="frame" x="341" y="74" width="57" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1Ie-tU-MnT" secondAttribute="height" multiplier="19:10" id="LXA-Pm-FGi"/>
+                                </constraints>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="1lr-Tg-rPQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1Df-io-lbb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1Ie-tU-MnT" firstAttribute="top" secondItem="1Df-io-lbb" secondAttribute="top" constant="30" id="2NO-3a-AXM"/>
+                            <constraint firstItem="1Df-io-lbb" firstAttribute="trailing" secondItem="1Ie-tU-MnT" secondAttribute="trailing" constant="16" id="tC1-r6-PDF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="viewBackground" destination="y87-v3-8WC" id="TtV-4O-sR8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OPs-MP-ebn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="242.0289855072464" y="63.616071428571423"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -23,14 +57,17 @@
                                     <constraint firstAttribute="height" constant="120" id="90p-Wd-1Pw"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RaH-mv-mbd">
-                                <rect key="frame" x="180.5" y="558.5" width="53" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RaH-mv-mbd">
+                                <rect key="frame" x="180.5" y="542" width="53" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="53" id="ntt-n4-8xb"/>
                                     <constraint firstAttribute="height" constant="40" id="oPR-42-f2t"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="pNN-OE-R2n"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Fqn-jw-SaO">
                                 <rect key="frame" x="16" y="276" width="382" height="126"/>
@@ -120,16 +157,25 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="43" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e6D-Rx-LQY">
                                                 <rect key="frame" x="0.0" y="46" width="43" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Nf-DR-B23">
                                                 <rect key="frame" x="0.0" y="92" width="43" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -149,6 +195,7 @@
                             <constraint firstItem="DQE-6l-gVg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="GXl-JZ-VNH"/>
                             <constraint firstItem="Fqn-jw-SaO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="JvG-bg-a1y"/>
                             <constraint firstItem="Fqn-jw-SaO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="QOJ-eC-qcT"/>
+                            <constraint firstItem="RaH-mv-mbd" firstAttribute="top" secondItem="Fqn-jw-SaO" secondAttribute="bottom" constant="140" id="aYc-bN-zKg"/>
                             <constraint firstItem="DQE-6l-gVg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="77" id="ePe-Vf-sJu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DQE-6l-gVg" secondAttribute="trailing" constant="16" id="tZu-jU-uAb"/>
                         </constraints>
@@ -169,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="64.285714285714278"/>
+            <point key="canvasLocation" x="1047.8260869565217" y="64.285714285714278"/>
         </scene>
     </scenes>
     <resources>
